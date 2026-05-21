@@ -31,7 +31,6 @@
             font-family: 'Playfair Display', Georgia, serif;
             font-size: 2rem;
             font-weight: 700;
-            letter-spacing: -0.01em;
             color: #f5e07a;
         }
 
@@ -112,29 +111,280 @@
             font-family: 'Outfit', sans-serif;
             font-size: 0.9rem;
             font-weight: 500;
-            letter-spacing: 0.04em;
             color: #86efac;
         }
 
+        /* ── Carrusel circular ── */
         .hero-circle {
             width: 300px;
             height: 300px;
             border-radius: 50%;
             overflow: hidden;
             border: 14px solid #d4af37;
-            box-shadow: 0 20px 50px -10px rgba(212, 175, 55, 0.5);
+            box-shadow: 0 20px 50px -10px rgba(212,175,55,0.5);
             transition: all 0.4s ease;
+            position: relative;
         }
 
-        .carousel-image {
+        /* ── Ilustraciones CSS de billar ── */
+
+        /* ESCENA 1: Mesa de billar vista desde arriba */
+        .scene-table {
             width: 100%;
             height: 100%;
-            object-fit: cover;
-            transition: opacity 0.5s ease-in-out;
+            background: #1a6b35;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .scene-table::before {
+            /* borde de la mesa */
+            content: '';
+            position: absolute;
+            inset: 12px;
+            border: 8px solid #8B4513;
+            border-radius: 6px;
+            box-shadow: inset 0 0 20px rgba(0,0,0,0.4);
+        }
+        /* troneras */
+        .scene-table .pocket {
+            position: absolute;
+            width: 22px;
+            height: 22px;
+            background: #000;
+            border-radius: 50%;
+            border: 3px solid #5a2d0c;
+        }
+        .scene-table .p1 { top: 16px; left: 16px; }
+        .scene-table .p2 { top: 16px; left: 50%; transform: translateX(-50%); }
+        .scene-table .p3 { top: 16px; right: 16px; }
+        .scene-table .p4 { bottom: 16px; left: 16px; }
+        .scene-table .p5 { bottom: 16px; left: 50%; transform: translateX(-50%); }
+        .scene-table .p6 { bottom: 16px; right: 16px; }
+        /* bolas en triángulo */
+        .scene-table .balls {
+            position: relative;
+            width: 90px;
+            height: 80px;
+            margin-right: -20px;
+        }
+        .ball {
+            position: absolute;
+            width: 26px;
+            height: 26px;
+            border-radius: 50%;
+            box-shadow: inset -4px -4px 8px rgba(0,0,0,0.4), 2px 2px 6px rgba(0,0,0,0.3);
+        }
+        .ball-8  { background: #111; top: 27px; left: 32px; }
+        .ball-1  { background: #f5e642; top: 0;   left: 32px; }
+        .ball-2  { background: #1a3ef5; top: 27px; left: 6px; }
+        .ball-3  { background: #e53e3e; top: 27px; left: 58px; }
+        .ball-4  { background: #9b59b6; top: 54px; left: 0;  }
+        .ball-5  { background: #e67e22; top: 54px; left: 32px; }
+        .ball-6  { background: #27ae60; top: 54px; left: 64px; }
+        /* bola blanca (taco apuntando) */
+        .scene-table .cue-ball {
+            position: absolute;
+            width: 26px;
+            height: 26px;
+            border-radius: 50%;
+            background: #fff;
+            box-shadow: inset -4px -4px 8px rgba(0,0,0,0.2), 2px 2px 6px rgba(0,0,0,0.3);
+            left: 30%;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+        /* taco */
+        .scene-table .cue {
+            position: absolute;
+            width: 120px;
+            height: 6px;
+            background: linear-gradient(90deg, #d4af37, #8B4513);
+            border-radius: 3px;
+            left: 8%;
+            top: 50%;
+            transform: translateY(-50%) rotate(-8deg);
+            transform-origin: right center;
         }
 
-        .plato-img { height: 200px; }
+        /* ESCENA 2: Bola 8 grande */
+        .scene-ball8 {
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at 35% 35%, #2a2a2a, #000);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+        .scene-ball8 .big-ball {
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            background: radial-gradient(circle at 35% 30%, #444, #000);
+            box-shadow: inset -15px -15px 30px rgba(0,0,0,0.8),
+                        8px 8px 30px rgba(0,0,0,0.6),
+                        0 0 60px rgba(212,175,55,0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+        .scene-ball8 .big-ball::after {
+            content: '8';
+            width: 64px;
+            height: 64px;
+            background: #fff;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            font-weight: 900;
+            color: #000;
+            font-family: 'Playfair Display', serif;
+            line-height: 64px;
+            text-align: center;
+        }
+        .scene-ball8 .shine {
+            position: absolute;
+            top: 22%;
+            left: 28%;
+            width: 40px;
+            height: 25px;
+            background: rgba(255,255,255,0.18);
+            border-radius: 50%;
+            transform: rotate(-30deg);
+            filter: blur(4px);
+        }
 
+        /* ESCENA 3: Taco y bola en detalle */
+        .scene-cue {
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at 50% 50%, #1a4a25, #061209);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .scene-cue .cue-stick {
+            position: absolute;
+            width: 340px;
+            height: 14px;
+            background: linear-gradient(90deg, #d4af37 0%, #c8a227 20%, #a0784a 60%, #6b3a1f 100%);
+            border-radius: 7px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+            transform: rotate(-20deg);
+            top: 38%;
+        }
+        .scene-cue .tip {
+            position: absolute;
+            width: 18px;
+            height: 14px;
+            background: #4a90d9;
+            border-radius: 3px 0 0 3px;
+            top: 38%;
+            left: calc(50% - 170px);
+            transform: rotate(-20deg) translateY(0px);
+        }
+        .scene-cue .ball-w {
+            position: absolute;
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background: radial-gradient(circle at 35% 30%, #fff, #d0d0d0);
+            box-shadow: inset -8px -8px 20px rgba(0,0,0,0.2), 4px 4px 20px rgba(0,0,0,0.4);
+            bottom: 28%;
+            right: 28%;
+        }
+        .scene-cue .ball-r {
+            position: absolute;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: radial-gradient(circle at 35% 30%, #f87171, #b91c1c);
+            box-shadow: inset -6px -6px 16px rgba(0,0,0,0.3), 3px 3px 16px rgba(0,0,0,0.4);
+            bottom: 22%;
+            right: 18%;
+        }
+        /* partículas de impacto */
+        .scene-cue .spark {
+            position: absolute;
+            border-radius: 50%;
+            background: #f5e07a;
+            opacity: 0.7;
+        }
+        .scene-cue .s1 { width:6px; height:6px; bottom:46%; right:26%; }
+        .scene-cue .s2 { width:4px; height:4px; bottom:50%; right:24%; }
+        .scene-cue .s3 { width:5px; height:5px; bottom:44%; right:22%; }
+
+        /* ESCENA 4: Rack triangular */
+        .scene-rack {
+            width: 100%;
+            height: 100%;
+            background: #1a6b35;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+        .scene-rack::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(circle at 50% 50%, rgba(255,255,255,0.05), transparent 70%);
+        }
+        .rack-balls {
+            position: relative;
+            width: 120px;
+            height: 110px;
+        }
+        .rb {
+            position: absolute;
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            box-shadow: inset -4px -4px 10px rgba(0,0,0,0.4), 2px 2px 8px rgba(0,0,0,0.4);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.65rem;
+            font-weight: 900;
+            color: #fff;
+            font-family: 'Outfit', sans-serif;
+        }
+        /* fila 1 */
+        .rb1  { background: #f5e642; color:#000; top:0;   left:44px; }
+        /* fila 2 */
+        .rb2  { background: #1a3ef5; top:36px; left:28px; }
+        .rb3  { background: #e53e3e; top:36px; left:60px; }
+        /* fila 3 */
+        .rb4  { background: #9b59b6; top:72px; left:12px; }
+        .rb5  { background: #000;    top:72px; left:44px; }
+        .rb6  { background: #e67e22; top:72px; left:76px; }
+        /* triángulo rack */
+        .rack-outline {
+            position: absolute;
+            top: -10px; left: -10px;
+            width: 140px;
+            height: 130px;
+            border: 3px solid rgba(212,175,55,0.5);
+            clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+        }
+
+        /* slides del carrusel */
+        .slide {
+            position: absolute;
+            inset: 0;
+            opacity: 0;
+            transition: opacity 0.6s ease;
+        }
+        .slide.active { opacity: 1; }
+
+        /* Cards */
         .card {
             background: #0f2416;
             border: 1px solid #1e4d2b;
@@ -142,12 +392,14 @@
         }
         .card:hover { transform: translateY(-8px); }
 
-        .felt-section {
-            background: #0d2416;
-            border-top: 2px solid #1e4d2b;
-            border-bottom: 2px solid #1e4d2b;
+        /* Ilustración dentro de card */
+        .card-illustration {
+            height: 200px;
+            position: relative;
+            overflow: hidden;
         }
 
+        /* Botones contacto */
         .contact-btn {
             display: flex;
             flex: 1;
@@ -166,63 +418,37 @@
             position: relative;
             overflow: hidden;
         }
-
-        .contact-btn::before {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background: rgba(255,255,255,0.06);
-            opacity: 0;
-            transition: opacity 0.2s;
-        }
-
-        .contact-btn:hover::before { opacity: 1; }
-        .contact-btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 12px 28px -6px rgba(0,0,0,0.5);
-        }
-
+        .contact-btn:hover { transform: translateY(-3px); }
         .btn-whatsapp {
-            background: linear-gradient(135deg, #25d366 0%, #128c4e 100%);
-            box-shadow: 0 6px 20px -4px rgba(37, 211, 102, 0.4);
+            background: linear-gradient(135deg, #25d366, #128c4e);
+            box-shadow: 0 6px 20px -4px rgba(37,211,102,0.4);
         }
-
         .btn-email {
-            background: linear-gradient(135deg, #d4af37 0%, #92740d 100%);
-            box-shadow: 0 6px 20px -4px rgba(212, 175, 55, 0.4);
+            background: linear-gradient(135deg, #d4af37, #92740d);
+            box-shadow: 0 6px 20px -4px rgba(212,175,55,0.4);
         }
-
         .icon-wrap {
-            width: 54px;
-            height: 54px;
+            width: 54px; height: 54px;
             border-radius: 50%;
             background: rgba(255,255,255,0.15);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.7rem;
-            flex-shrink: 0;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 1.7rem; flex-shrink: 0;
             border: 2px solid rgba(255,255,255,0.3);
         }
+        .btn-label { display: flex; flex-direction: column; line-height: 1.3; }
+        .btn-label span.sub { font-size: 0.75rem; font-weight: 400; opacity: 0.8; letter-spacing: 0.06em; }
 
-        .btn-label {
-            display: flex;
-            flex-direction: column;
-            line-height: 1.3;
-        }
-
-        .btn-label span.sub {
-            font-size: 0.75rem;
-            font-weight: 400;
-            opacity: 0.8;
-            letter-spacing: 0.06em;
+        .felt-section {
+            background: #0d2416;
+            border-top: 2px solid #1e4d2b;
+            border-bottom: 2px solid #1e4d2b;
         }
     </style>
 </head>
 <body class="text-gray-200 min-h-screen flex flex-col">
 
     <!-- Header -->
-    <header style="background:#061209; border-bottom: 2px solid #1e4d2b;">
+    <header style="background:#061209; border-bottom:2px solid #1e4d2b;">
         <div class="max-w-4xl mx-auto px-6 py-6 flex justify-between items-center">
             <div>
                 <h1 class="title">🎱 BILLAR ELITE</h1>
@@ -238,15 +464,65 @@
 
     <main class="flex-1 max-w-4xl mx-auto w-full">
 
-        <!-- Carrusel -->
+        <!-- Carrusel CSS -->
         <section class="py-16 text-center">
             <div class="flex flex-col items-center px-6">
                 <div id="carousel-container" class="hero-circle cursor-pointer select-none mx-auto">
-                    <img id="carousel-img"
-                         src="https://images.unsplash.com/photo-1543722530-d2c3201371e7?w=800&auto=format&fit=crop&q=80"
-                         alt="Billar"
-                         class="carousel-image">
+
+                    <!-- Slide 1: Mesa vista desde arriba -->
+                    <div class="slide active scene-table">
+                        <div class="pocket p1"></div>
+                        <div class="pocket p2"></div>
+                        <div class="pocket p3"></div>
+                        <div class="pocket p4"></div>
+                        <div class="pocket p5"></div>
+                        <div class="pocket p6"></div>
+                        <div class="cue"></div>
+                        <div class="cue-ball"></div>
+                        <div class="balls">
+                            <div class="ball ball-1"></div>
+                            <div class="ball ball-2"></div>
+                            <div class="ball ball-3"></div>
+                            <div class="ball ball-4"></div>
+                            <div class="ball ball-5"></div>
+                            <div class="ball ball-6"></div>
+                            <div class="ball ball-8"></div>
+                        </div>
+                    </div>
+
+                    <!-- Slide 2: Bola 8 grande -->
+                    <div class="slide scene-ball8">
+                        <div class="big-ball">
+                            <div class="shine"></div>
+                        </div>
+                    </div>
+
+                    <!-- Slide 3: Taco impactando -->
+                    <div class="slide scene-cue">
+                        <div class="tip"></div>
+                        <div class="cue-stick"></div>
+                        <div class="ball-r"></div>
+                        <div class="ball-w"></div>
+                        <div class="spark s1"></div>
+                        <div class="spark s2"></div>
+                        <div class="spark s3"></div>
+                    </div>
+
+                    <!-- Slide 4: Rack triangular -->
+                    <div class="slide scene-rack">
+                        <div class="rack-balls">
+                            <div class="rack-outline"></div>
+                            <div class="rb rb1">1</div>
+                            <div class="rb rb2">2</div>
+                            <div class="rb rb3">3</div>
+                            <div class="rb rb4">4</div>
+                            <div class="rb rb5">8</div>
+                            <div class="rb rb6">6</div>
+                        </div>
+                    </div>
+
                 </div>
+
                 <div class="flex gap-3 mt-10" id="carousel-dots"></div>
                 <p class="mt-6 hint-text flex items-center justify-center gap-3">
                     <i class="fa-solid fa-hand-pointer animate-bounce"></i>
@@ -255,14 +531,32 @@
             </div>
         </section>
 
-        <!-- Mesas -->
+        <!-- Mesas / Servicios -->
         <section class="py-14 px-6" style="background:#061209;">
             <h2 class="section-title text-center mb-12">Nuestras Mesas</h2>
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
 
+                <!-- Card 1: Pool -->
                 <div class="card rounded-3xl overflow-hidden shadow-xl">
-                    <img src="https://images.unsplash.com/photo-1543722530-d2c3201371e7?w=600&auto=format&fit=crop&q=80"
-                         class="w-full plato-img object-cover" alt="Mesa Pool">
+                    <div class="card-illustration scene-table" style="border-radius:0;">
+                        <div class="pocket p1"></div>
+                        <div class="pocket p2"></div>
+                        <div class="pocket p3"></div>
+                        <div class="pocket p4"></div>
+                        <div class="pocket p5"></div>
+                        <div class="pocket p6"></div>
+                        <div class="cue"></div>
+                        <div class="cue-ball"></div>
+                        <div class="balls">
+                            <div class="ball ball-1"></div>
+                            <div class="ball ball-2"></div>
+                            <div class="ball ball-3"></div>
+                            <div class="ball ball-4"></div>
+                            <div class="ball ball-5"></div>
+                            <div class="ball ball-6"></div>
+                            <div class="ball ball-8"></div>
+                        </div>
+                    </div>
                     <div class="p-7">
                         <h3 class="dish-name">Mesa de Pool</h3>
                         <p class="dish-price mt-2">S/. 8 / hora</p>
@@ -270,9 +564,13 @@
                     </div>
                 </div>
 
+                <!-- Card 2: Bola 8 -->
                 <div class="card rounded-3xl overflow-hidden shadow-xl">
-                    <img src="https://images.unsplash.com/photo-1590075865003-e48277faa558?w=600&auto=format&fit=crop&q=80"
-                         class="w-full plato-img object-cover" alt="Carambola">
+                    <div class="card-illustration scene-ball8">
+                        <div class="big-ball" style="width:140px;height:140px;">
+                            <div class="shine"></div>
+                        </div>
+                    </div>
                     <div class="p-7">
                         <h3 class="dish-name">Carambola</h3>
                         <p class="dish-price mt-2">S/. 10 / hora</p>
@@ -280,9 +578,19 @@
                     </div>
                 </div>
 
+                <!-- Card 3: Rack -->
                 <div class="card rounded-3xl overflow-hidden shadow-xl">
-                    <img src="https://images.unsplash.com/photo-1614632537197-38a17061c2bd?w=600&auto=format&fit=crop&q=80"
-                         class="w-full plato-img object-cover" alt="VIP">
+                    <div class="card-illustration scene-rack">
+                        <div class="rack-balls">
+                            <div class="rack-outline"></div>
+                            <div class="rb rb1">1</div>
+                            <div class="rb rb2">2</div>
+                            <div class="rb rb3">3</div>
+                            <div class="rb rb4">4</div>
+                            <div class="rb rb5">8</div>
+                            <div class="rb rb6">6</div>
+                        </div>
+                    </div>
                     <div class="p-7">
                         <h3 class="dish-name">Sala VIP</h3>
                         <p class="dish-price mt-2">S/. 25 / hora</p>
@@ -318,37 +626,28 @@
     </main>
 
     <!-- Footer -->
-    <footer style="background:#040e07; border-top: 2px solid #1e4d2b;" class="text-white py-14">
+    <footer style="background:#040e07; border-top:2px solid #1e4d2b;" class="text-white py-14">
         <div class="max-w-4xl mx-auto px-6">
             <div class="text-center md:text-left mb-10">
                 <h2 class="footer-title">🎱 Billar Elite</h2>
                 <p class="footer-sub mt-2">El mejor billar de Tingo María</p>
             </div>
-
             <div class="flex flex-col md:flex-row gap-6">
-
                 <a href="https://wa.me/51900000000" target="_blank" class="contact-btn btn-whatsapp">
-                    <div class="icon-wrap">
-                        <i class="fa-brands fa-whatsapp"></i>
-                    </div>
+                    <div class="icon-wrap"><i class="fa-brands fa-whatsapp"></i></div>
                     <div class="btn-label">
                         <span>WhatsApp</span>
                         <span class="sub">Reserva tu mesa ahora</span>
                     </div>
                 </a>
-
                 <a href="mailto:billarelite@gmail.com" class="contact-btn btn-email">
-                    <div class="icon-wrap">
-                        <i class="fa-solid fa-envelope"></i>
-                    </div>
+                    <div class="icon-wrap"><i class="fa-solid fa-envelope"></i></div>
                     <div class="btn-label">
                         <span>Correo</span>
                         <span class="sub">billarelite@gmail.com</span>
                     </div>
                 </a>
-
             </div>
-
             <div class="text-center mt-12 footer-address">
                 Av. Principal 123, Tingo María &nbsp;•&nbsp; Abierto 24 horas
             </div>
@@ -356,61 +655,45 @@
     </footer>
 
     <script>
-        const images = [
-            "https://images.unsplash.com/photo-1543722530-d2c3201371e7?w=800&auto=format&fit=crop&q=80",
-            "https://images.unsplash.com/photo-1590075865003-e48277faa558?w=800&auto=format&fit=crop&q=80",
-            "https://images.unsplash.com/photo-1614632537197-38a17061c2bd?w=800&auto=format&fit=crop&q=80",
-            "https://images.unsplash.com/photo-1571751239011-41e2b8e59a5e?w=800&auto=format&fit=crop&q=80"
-        ];
-
+        const totalSlides = 4;
         let currentIndex = 0;
         let isInteracting = false;
         let carouselInterval;
 
-        const imgElement = document.getElementById("carousel-img");
-        const container = document.getElementById("carousel-container");
-        const dotsContainer = document.getElementById("carousel-dots");
+        const slides = document.querySelectorAll('.slide');
+        const container = document.getElementById('carousel-container');
+        const dotsContainer = document.getElementById('carousel-dots');
 
-        images.forEach((_, index) => {
-            const dot = document.createElement("div");
-            dot.className = `h-4 w-4 rounded-full border-2 border-yellow-500 ${index === 0 ? 'bg-yellow-400 scale-125' : 'bg-white/20'}`;
+        // Crear dots
+        for (let i = 0; i < totalSlides; i++) {
+            const dot = document.createElement('div');
+            dot.className = `h-4 w-4 rounded-full border-2 border-yellow-500 cursor-pointer transition-all ${i === 0 ? 'bg-yellow-400 scale-125' : 'bg-white/20'}`;
+            dot.addEventListener('click', () => goTo(i));
             dotsContainer.appendChild(dot);
-        });
-
+        }
         const dots = dotsContainer.children;
 
-        function changeImage() {
-            imgElement.style.opacity = 0;
-            setTimeout(() => {
-                currentIndex = (currentIndex + 1) % images.length;
-                imgElement.src = images[currentIndex];
-                Array.from(dots).forEach((dot, i) => {
-                    if (i === currentIndex) {
-                        dot.classList.add('bg-yellow-400', 'scale-125');
-                        dot.classList.remove('bg-white/20');
-                    } else {
-                        dot.classList.remove('bg-yellow-400', 'scale-125');
-                        dot.classList.add('bg-white/20');
-                    }
-                });
-                imgElement.style.opacity = 1;
-            }, 450);
+        function goTo(index) {
+            slides[currentIndex].classList.remove('active');
+            dots[currentIndex].classList.remove('bg-yellow-400', 'scale-125');
+            dots[currentIndex].classList.add('bg-white/20');
+            currentIndex = index;
+            slides[currentIndex].classList.add('active');
+            dots[currentIndex].classList.add('bg-yellow-400', 'scale-125');
+            dots[currentIndex].classList.remove('bg-white/20');
         }
+
+        function next() { goTo((currentIndex + 1) % totalSlides); }
 
         function startCarousel() {
             if (carouselInterval) clearInterval(carouselInterval);
-            carouselInterval = setInterval(() => {
-                if (!isInteracting) changeImage();
-            }, 3500);
+            carouselInterval = setInterval(() => { if (!isInteracting) next(); }, 3500);
         }
 
-        const startInteraction = () => { isInteracting = true; container.style.transform = 'scale(1.08)'; };
-        const endInteraction = () => { isInteracting = false; container.style.transform = 'scale(1)'; };
-
-        container.addEventListener('mousedown', startInteraction);
-        window.addEventListener('mouseup', endInteraction);
-        container.addEventListener('touchstart', startInteraction, { passive: true });
-        window.addEventListener('touchend', endInteraction);
+        container.addEventListener('mousedown', () => { isInteracting = true; container.style.transform = 'scale(1.08)'; });
+        window.addEventListener('mouseup', () => { isInteracting = false; container.style.transform = 'scale(1)'; });
+        container.addEventListener('touchstart', () => { isInteracting = true; container.style.transform = 'scale(1.08)'; }, { passive: true });
+        window.addEventListener('touchend', () => { isInteracting = false; container.style.transform = 'scale(1)'; });
 
         startCarousel();
     </script>
