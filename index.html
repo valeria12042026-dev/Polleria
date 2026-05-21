@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gran Pollería & Chaufa | Tingo María</title>
+    <title>Billar Elite | Tingo María</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -12,7 +12,7 @@
 
     <style>
         body {
-            background: linear-gradient(to bottom, #fffbeb, #fef3e8);
+            background: linear-gradient(to bottom, #0a1a0f, #0f2d1a, #0a1a0f);
             font-family: 'Outfit', system-ui, sans-serif;
         }
 
@@ -22,7 +22,7 @@
             font-size: 2.6rem;
             line-height: 1.08;
             letter-spacing: -0.01em;
-            background: linear-gradient(90deg, #b45309, #dc2626, #d97706);
+            background: linear-gradient(90deg, #d4af37, #f5e07a, #d4af37);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
@@ -32,7 +32,7 @@
             font-size: 2rem;
             font-weight: 700;
             letter-spacing: -0.01em;
-            color: #1c1917;
+            color: #f5e07a;
         }
 
         .city-tag {
@@ -41,62 +41,62 @@
             font-weight: 600;
             letter-spacing: 0.18em;
             text-transform: uppercase;
-            color: #d97706;
+            color: #86efac;
         }
 
         .dish-name {
             font-family: 'Playfair Display', Georgia, serif;
             font-size: 1.35rem;
             font-weight: 700;
-            letter-spacing: -0.01em;
-            color: #1c1917;
+            color: #f5e07a;
         }
 
         .dish-price {
             font-family: 'Outfit', sans-serif;
-            font-size: 1.15rem;
+            font-size: 1.1rem;
             font-weight: 700;
-            color: #b45309;
+            color: #86efac;
         }
 
         .dish-desc {
             font-family: 'Outfit', sans-serif;
-            font-size: 0.9rem;
-            color: #6b7280;
-            line-height: 1.55;
+            font-size: 0.92rem;
+            color: #9ca3af;
+            line-height: 1.7;
         }
 
         .reason-title {
             font-family: 'Playfair Display', Georgia, serif;
             font-size: 1.2rem;
             font-weight: 700;
-            color: #1c1917;
+            color: #f5e07a;
         }
 
         .reason-desc {
             font-family: 'Outfit', sans-serif;
-            font-size: 0.9rem;
-            color: #6b7280;
+            font-size: 0.92rem;
+            color: #9ca3af;
+            line-height: 1.65;
         }
 
         .footer-title {
             font-family: 'Playfair Display', Georgia, serif;
             font-weight: 700;
             font-size: 1.8rem;
-            color: #fbbf24;
+            color: #d4af37;
         }
 
         .footer-sub {
             font-family: 'Outfit', sans-serif;
             font-size: 0.9rem;
             letter-spacing: 0.06em;
-            color: #9ca3af;
+            color: #6b7280;
         }
 
         .footer-address {
             font-family: 'Outfit', sans-serif;
             font-size: 0.8rem;
-            letter-spacing: 0.08em;
+            letter-spacing: 0.1em;
             text-transform: uppercase;
             color: #4b5563;
         }
@@ -113,7 +113,7 @@
             font-size: 0.9rem;
             font-weight: 500;
             letter-spacing: 0.04em;
-            color: #c2410c;
+            color: #86efac;
         }
 
         .hero-circle {
@@ -121,8 +121,8 @@
             height: 300px;
             border-radius: 50%;
             overflow: hidden;
-            border: 14px solid #f59e0b;
-            box-shadow: 0 20px 40px -10px rgb(245 158 11 / 0.5);
+            border: 14px solid #d4af37;
+            box-shadow: 0 20px 50px -10px rgba(212, 175, 55, 0.5);
             transition: all 0.4s ease;
         }
 
@@ -133,18 +133,28 @@
             transition: opacity 0.5s ease-in-out;
         }
 
-        .plato-img { height: 180px; }
-        .card { transition: all 0.4s ease; }
+        .plato-img { height: 200px; }
+
+        .card {
+            background: #0f2416;
+            border: 1px solid #1e4d2b;
+            transition: all 0.4s ease;
+        }
         .card:hover { transform: translateY(-8px); }
 
-        /* ── Botones de contacto ── */
+        .felt-section {
+            background: #0d2416;
+            border-top: 2px solid #1e4d2b;
+            border-bottom: 2px solid #1e4d2b;
+        }
+
         .contact-btn {
             display: flex;
             flex: 1;
             align-items: center;
             justify-content: center;
-            gap: 16px;
-            padding: 24px 20px;
+            gap: 18px;
+            padding: 28px 24px;
             border-radius: 24px;
             text-decoration: none;
             color: white;
@@ -161,7 +171,7 @@
             content: '';
             position: absolute;
             inset: 0;
-            background: rgba(255,255,255,0.08);
+            background: rgba(255,255,255,0.06);
             opacity: 0;
             transition: opacity 0.2s;
         }
@@ -169,39 +179,36 @@
         .contact-btn:hover::before { opacity: 1; }
         .contact-btn:hover {
             transform: translateY(-3px);
-            box-shadow: 0 12px 28px -6px rgba(0,0,0,0.4);
+            box-shadow: 0 12px 28px -6px rgba(0,0,0,0.5);
         }
 
-        /* WhatsApp */
         .btn-whatsapp {
             background: linear-gradient(135deg, #25d366 0%, #128c4e 100%);
-            box-shadow: 0 6px 20px -4px rgba(37, 211, 102, 0.5);
+            box-shadow: 0 6px 20px -4px rgba(37, 211, 102, 0.4);
         }
 
-        /* Correo */
         .btn-email {
-            background: linear-gradient(135deg, #f87171 0%, #b91c1c 100%);
-            box-shadow: 0 6px 20px -4px rgba(220, 38, 38, 0.5);
+            background: linear-gradient(135deg, #d4af37 0%, #92740d 100%);
+            box-shadow: 0 6px 20px -4px rgba(212, 175, 55, 0.4);
         }
 
-        /* Ícono CSS — círculo con letra/símbolo */
         .icon-wrap {
-            width: 52px;
-            height: 52px;
+            width: 54px;
+            height: 54px;
             border-radius: 50%;
-            background: rgba(255,255,255,0.2);
+            background: rgba(255,255,255,0.15);
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.6rem;
+            font-size: 1.7rem;
             flex-shrink: 0;
-            border: 2px solid rgba(255,255,255,0.35);
+            border: 2px solid rgba(255,255,255,0.3);
         }
 
         .btn-label {
             display: flex;
             flex-direction: column;
-            line-height: 1.2;
+            line-height: 1.3;
         }
 
         .btn-label span.sub {
@@ -212,16 +219,17 @@
         }
     </style>
 </head>
-<body class="text-gray-800 min-h-screen flex flex-col">
+<body class="text-gray-200 min-h-screen flex flex-col">
 
     <!-- Header -->
-    <header class="bg-white shadow-md">
-        <div class="max-w-4xl mx-auto px-5 py-5 flex justify-between items-center">
+    <header style="background:#061209; border-bottom: 2px solid #1e4d2b;">
+        <div class="max-w-4xl mx-auto px-6 py-6 flex justify-between items-center">
             <div>
-                <h1 class="title">GRAN POLLERÍA & CHAUFA</h1>
-                <p class="city-tag mt-1">Tingo María</p>
+                <h1 class="title">🎱 BILLAR ELITE</h1>
+                <p class="city-tag mt-2">Tingo María</p>
             </div>
-            <div class="flex items-center gap-2 bg-green-100 text-green-700 px-5 py-2.5 rounded-full badge-24">
+            <div class="flex items-center gap-2 px-5 py-3 rounded-full badge-24"
+                 style="background:#0d2416; border:1px solid #22c55e; color:#22c55e;">
                 <div class="w-3 h-3 bg-green-500 rounded-full animate-pulse"></div>
                 24 HORAS
             </div>
@@ -231,114 +239,117 @@
     <main class="flex-1 max-w-4xl mx-auto w-full">
 
         <!-- Carrusel -->
-        <section class="py-10 text-center">
-            <div class="flex flex-col items-center px-5">
+        <section class="py-16 text-center">
+            <div class="flex flex-col items-center px-6">
                 <div id="carousel-container" class="hero-circle cursor-pointer select-none mx-auto">
                     <img id="carousel-img"
-                         src="https://images.unsplash.com/photo-1626132647523-66f5bf380027?w=800&auto=format&fit=crop&q=80"
-                         alt="Pollo a la brasa"
+                         src="https://images.unsplash.com/photo-1543722530-d2c3201371e7?w=800&auto=format&fit=crop&q=80"
+                         alt="Billar"
                          class="carousel-image">
                 </div>
-                <div class="flex gap-3 mt-8" id="carousel-dots"></div>
+                <div class="flex gap-3 mt-10" id="carousel-dots"></div>
                 <p class="mt-6 hint-text flex items-center justify-center gap-3">
                     <i class="fa-solid fa-hand-pointer animate-bounce"></i>
-                    
+                    Mantén presionado para pausar
                 </p>
             </div>
         </section>
 
-        <!-- Platos Destacados -->
-        <section class="py-8 px-5 bg-white">
-            <h2 class="section-title text-center mb-8">Platos Más Pedidos</h2>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                <div class="card bg-white rounded-3xl overflow-hidden shadow-lg border border-amber-100">
-                    <img src="https://images.unsplash.com/photo-1626132647523-66f5bf380027?w=600&auto=format&fit=crop&q=80"
-                         class="w-full plato-img object-cover" alt="Pollo">
-                    <div class="p-6">
-                        <h3 class="dish-name">Pollo a la Brasa</h3>
-                        <p class="dish-price mt-1">S/. 45</p>
-                        <p class="dish-desc mt-3">Con papas, ensalada y salsas.</p>
+        <!-- Mesas -->
+        <section class="py-14 px-6" style="background:#061209;">
+            <h2 class="section-title text-center mb-12">Nuestras Mesas</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+
+                <div class="card rounded-3xl overflow-hidden shadow-xl">
+                    <img src="https://images.unsplash.com/photo-1543722530-d2c3201371e7?w=600&auto=format&fit=crop&q=80"
+                         class="w-full plato-img object-cover" alt="Mesa Pool">
+                    <div class="p-7">
+                        <h3 class="dish-name">Mesa de Pool</h3>
+                        <p class="dish-price mt-2">S/. 8 / hora</p>
+                        <p class="dish-desc mt-3">Mesa profesional de 7 pies con paño importado y tacos de calidad.</p>
                     </div>
                 </div>
-                <div class="card bg-white rounded-3xl overflow-hidden shadow-lg border border-amber-100">
-                    <img src="https://images.unsplash.com/photo-1562967914-608f82629710?w=600&auto=format&fit=crop&q=80"
-                         class="w-full plato-img object-cover" alt="Chaufa">
-                    <div class="p-6">
-                        <h3 class="dish-name">Chaufa Especial</h3>
-                        <p class="dish-price mt-1">S/. 38</p>
-                        <p class="dish-desc mt-3">Pollo, cerdo y langostinos.</p>
+
+                <div class="card rounded-3xl overflow-hidden shadow-xl">
+                    <img src="https://images.unsplash.com/photo-1590075865003-e48277faa558?w=600&auto=format&fit=crop&q=80"
+                         class="w-full plato-img object-cover" alt="Carambola">
+                    <div class="p-7">
+                        <h3 class="dish-name">Carambola</h3>
+                        <p class="dish-price mt-2">S/. 10 / hora</p>
+                        <p class="dish-desc mt-3">Mesa de 9 pies, perfecta para partidas de alto nivel.</p>
                     </div>
                 </div>
-                <div class="card bg-white rounded-3xl overflow-hidden shadow-lg border border-amber-100">
-                    <img src="https://images.unsplash.com/photo-1512058564366-18510be2db19?w=600&auto=format&fit=crop&q=80"
-                         class="w-full plato-img object-cover" alt="Combo">
-                    <div class="p-6">
-                        <h3 class="dish-name">Combo Familiar</h3>
-                        <p class="dish-price mt-1">S/. 89</p>
-                        <p class="dish-desc mt-3">Ideal para 4-5 personas.</p>
+
+                <div class="card rounded-3xl overflow-hidden shadow-xl">
+                    <img src="https://images.unsplash.com/photo-1614632537197-38a17061c2bd?w=600&auto=format&fit=crop&q=80"
+                         class="w-full plato-img object-cover" alt="VIP">
+                    <div class="p-7">
+                        <h3 class="dish-name">Sala VIP</h3>
+                        <p class="dish-price mt-2">S/. 25 / hora</p>
+                        <p class="dish-desc mt-3">Ambiente privado y exclusivo para partidas especiales.</p>
                     </div>
                 </div>
+
             </div>
         </section>
 
         <!-- Por qué elegirnos -->
-        <section class="py-12 px-5 bg-amber-50">
-            <h2 class="section-title text-center mb-10">¿Por qué elegirnos?</h2>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+        <section class="py-16 px-6 felt-section">
+            <h2 class="section-title text-center mb-14">¿Por qué elegirnos?</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-12 text-center">
                 <div>
-                    <div class="text-5xl mb-4">🍗</div>
-                    <h3 class="reason-title mb-2">Calidad Premium</h3>
-                    <p class="reason-desc">Pollo fresco y los mejores ingredientes</p>
+                    <div class="text-6xl mb-5">🎱</div>
+                    <h3 class="reason-title mb-3">Mesas Premium</h3>
+                    <p class="reason-desc">Paño importado y tacos de calidad para la mejor experiencia.</p>
                 </div>
                 <div>
-                    <div class="text-5xl mb-4">🕒</div>
-                    <h3 class="reason-title mb-2">Abierto 24 Horas</h3>
-                    <p class="reason-desc">Atención toda la noche</p>
+                    <div class="text-6xl mb-5">🕒</div>
+                    <h3 class="reason-title mb-3">Abierto 24 Horas</h3>
+                    <p class="reason-desc">Juega a cualquier hora, todos los días del año.</p>
                 </div>
                 <div>
-                    <div class="text-5xl mb-4">🚀</div>
-                    <h3 class="reason-title mb-2">Delivery Rápido</h3>
-                    <p class="reason-desc">Menos de 30 minutos</p>
+                    <div class="text-6xl mb-5">🏆</div>
+                    <h3 class="reason-title mb-3">Torneos Semanales</h3>
+                    <p class="reason-desc">Compite cada semana y gana premios en efectivo.</p>
                 </div>
             </div>
         </section>
+
     </main>
 
     <!-- Footer -->
-    <footer class="bg-gray-900 text-white py-10">
-        <div class="max-w-4xl mx-auto px-5">
-            <div class="text-center md:text-left">
-                <h2 class="footer-title">Gran Pollería & Chaufa</h2>
-                <p class="footer-sub mt-1">Sabor y tradición en Tingo María</p>
+    <footer style="background:#040e07; border-top: 2px solid #1e4d2b;" class="text-white py-14">
+        <div class="max-w-4xl mx-auto px-6">
+            <div class="text-center md:text-left mb-10">
+                <h2 class="footer-title">🎱 Billar Elite</h2>
+                <p class="footer-sub mt-2">El mejor billar de Tingo María</p>
             </div>
 
-            <div class="mt-8 flex flex-col md:flex-row gap-6">
+            <div class="flex flex-col md:flex-row gap-6">
 
-                <!-- Botón WhatsApp -->
                 <a href="https://wa.me/51900000000" target="_blank" class="contact-btn btn-whatsapp">
                     <div class="icon-wrap">
                         <i class="fa-brands fa-whatsapp"></i>
                     </div>
                     <div class="btn-label">
                         <span>WhatsApp</span>
-                        <span class="sub">Escríbenos ahora</span>
+                        <span class="sub">Reserva tu mesa ahora</span>
                     </div>
                 </a>
 
-                <!-- Botón Correo -->
-                <a href="mailto:polleriachaufa@gmail.com" class="contact-btn btn-email">
+                <a href="mailto:billarelite@gmail.com" class="contact-btn btn-email">
                     <div class="icon-wrap">
                         <i class="fa-solid fa-envelope"></i>
                     </div>
                     <div class="btn-label">
                         <span>Correo</span>
-                        <span class="sub">polleriachaufa@gmail.com</span>
+                        <span class="sub">billarelite@gmail.com</span>
                     </div>
                 </a>
 
             </div>
 
-            <div class="text-center mt-10 footer-address">
+            <div class="text-center mt-12 footer-address">
                 Av. Principal 123, Tingo María &nbsp;•&nbsp; Abierto 24 horas
             </div>
         </div>
@@ -346,10 +357,10 @@
 
     <script>
         const images = [
-            "https://images.unsplash.com/photo-1626132647523-66f5bf380027?w=800&auto=format&fit=crop&q=80",
-            "https://images.unsplash.com/photo-1512058564366-18510be2db19?w=800&auto=format&fit=crop&q=80",
-            "https://images.unsplash.com/photo-1562967914-608f82629710?w=800&auto=format&fit=crop&q=80",
-            "https://images.unsplash.com/photo-1573080496219-bb080dd4f877?w=800&auto=format&fit=crop&q=80"
+            "https://images.unsplash.com/photo-1543722530-d2c3201371e7?w=800&auto=format&fit=crop&q=80",
+            "https://images.unsplash.com/photo-1590075865003-e48277faa558?w=800&auto=format&fit=crop&q=80",
+            "https://images.unsplash.com/photo-1614632537197-38a17061c2bd?w=800&auto=format&fit=crop&q=80",
+            "https://images.unsplash.com/photo-1571751239011-41e2b8e59a5e?w=800&auto=format&fit=crop&q=80"
         ];
 
         let currentIndex = 0;
@@ -362,7 +373,7 @@
 
         images.forEach((_, index) => {
             const dot = document.createElement("div");
-            dot.className = `h-4 w-4 rounded-full border-2 border-amber-300 ${index === 0 ? 'bg-amber-500 scale-125' : 'bg-white/60'}`;
+            dot.className = `h-4 w-4 rounded-full border-2 border-yellow-500 ${index === 0 ? 'bg-yellow-400 scale-125' : 'bg-white/20'}`;
             dotsContainer.appendChild(dot);
         });
 
@@ -375,11 +386,11 @@
                 imgElement.src = images[currentIndex];
                 Array.from(dots).forEach((dot, i) => {
                     if (i === currentIndex) {
-                        dot.classList.add('bg-amber-500', 'scale-125');
-                        dot.classList.remove('bg-white/60');
+                        dot.classList.add('bg-yellow-400', 'scale-125');
+                        dot.classList.remove('bg-white/20');
                     } else {
-                        dot.classList.remove('bg-amber-500', 'scale-125');
-                        dot.classList.add('bg-white/60');
+                        dot.classList.remove('bg-yellow-400', 'scale-125');
+                        dot.classList.add('bg-white/20');
                     }
                 });
                 imgElement.style.opacity = 1;
