@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -7,11 +6,114 @@
     <title>Gran Pollería & Chaufa | Tingo María</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet">
+
     <style>
         body {
             background: linear-gradient(to bottom, #fffbeb, #fef3e8);
-            font-family: 'Segoe UI', system-ui, sans-serif;
+            font-family: 'Outfit', system-ui, sans-serif;
+        }
+
+        .title {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-weight: 900;
+            font-size: 2.6rem;
+            line-height: 1.08;
+            letter-spacing: -0.01em;
+            background: linear-gradient(90deg, #b45309, #dc2626, #d97706);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .section-title {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: 2rem;
+            font-weight: 700;
+            letter-spacing: -0.01em;
+            color: #1c1917;
+        }
+
+        .city-tag {
+            font-family: 'Outfit', sans-serif;
+            font-size: 0.85rem;
+            font-weight: 600;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            color: #d97706;
+        }
+
+        .dish-name {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: 1.35rem;
+            font-weight: 700;
+            letter-spacing: -0.01em;
+            color: #1c1917;
+        }
+
+        .dish-price {
+            font-family: 'Outfit', sans-serif;
+            font-size: 1.15rem;
+            font-weight: 700;
+            color: #b45309;
+        }
+
+        .dish-desc {
+            font-family: 'Outfit', sans-serif;
+            font-size: 0.9rem;
+            color: #6b7280;
+            line-height: 1.55;
+        }
+
+        .reason-title {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: #1c1917;
+        }
+
+        .reason-desc {
+            font-family: 'Outfit', sans-serif;
+            font-size: 0.9rem;
+            color: #6b7280;
+        }
+
+        .footer-title {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-weight: 700;
+            font-size: 1.8rem;
+            color: #fbbf24;
+        }
+
+        .footer-sub {
+            font-family: 'Outfit', sans-serif;
+            font-size: 0.9rem;
+            letter-spacing: 0.06em;
+            color: #9ca3af;
+        }
+
+        .footer-address {
+            font-family: 'Outfit', sans-serif;
+            font-size: 0.8rem;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: #4b5563;
+        }
+
+        .badge-24 {
+            font-family: 'Outfit', sans-serif;
+            font-size: 0.85rem;
+            font-weight: 700;
+            letter-spacing: 0.12em;
+        }
+
+        .hint-text {
+            font-family: 'Outfit', sans-serif;
+            font-size: 0.9rem;
+            font-weight: 500;
+            letter-spacing: 0.04em;
+            color: #c2410c;
         }
 
         .hero-circle {
@@ -28,31 +130,85 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
-            object-position: center;
             transition: opacity 0.5s ease-in-out;
         }
 
-        .title {
-            font-size: 3.1rem;
-            line-height: 1.05;
-            background: linear-gradient(90deg, #f59e0b, #dc2626, #f59e0b);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+        .plato-img { height: 180px; }
+        .card { transition: all 0.4s ease; }
+        .card:hover { transform: translateY(-8px); }
+
+        /* ── Botones de contacto ── */
+        .contact-btn {
+            display: flex;
+            flex: 1;
+            align-items: center;
+            justify-content: center;
+            gap: 16px;
+            padding: 24px 20px;
+            border-radius: 24px;
+            text-decoration: none;
+            color: white;
+            font-family: 'Outfit', sans-serif;
+            font-weight: 700;
+            font-size: 1.1rem;
+            letter-spacing: 0.04em;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            position: relative;
+            overflow: hidden;
         }
 
-        .section-title {
-            font-size: 2.1rem;
+        .contact-btn::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: rgba(255,255,255,0.08);
+            opacity: 0;
+            transition: opacity 0.2s;
         }
 
-        .plato-img {
-            height: 180px;           /* Imágenes más pequeñas */
+        .contact-btn:hover::before { opacity: 1; }
+        .contact-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 28px -6px rgba(0,0,0,0.4);
         }
 
-        .card {
-            transition: all 0.4s ease;
+        /* WhatsApp */
+        .btn-whatsapp {
+            background: linear-gradient(135deg, #25d366 0%, #128c4e 100%);
+            box-shadow: 0 6px 20px -4px rgba(37, 211, 102, 0.5);
         }
-        .card:hover {
-            transform: translateY(-8px);
+
+        /* Correo */
+        .btn-email {
+            background: linear-gradient(135deg, #f87171 0%, #b91c1c 100%);
+            box-shadow: 0 6px 20px -4px rgba(220, 38, 38, 0.5);
+        }
+
+        /* Ícono CSS — círculo con letra/símbolo */
+        .icon-wrap {
+            width: 52px;
+            height: 52px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.6rem;
+            flex-shrink: 0;
+            border: 2px solid rgba(255,255,255,0.35);
+        }
+
+        .btn-label {
+            display: flex;
+            flex-direction: column;
+            line-height: 1.2;
+        }
+
+        .btn-label span.sub {
+            font-size: 0.75rem;
+            font-weight: 400;
+            opacity: 0.8;
+            letter-spacing: 0.06em;
         }
     </style>
 </head>
@@ -62,11 +218,11 @@
     <header class="bg-white shadow-md">
         <div class="max-w-4xl mx-auto px-5 py-5 flex justify-between items-center">
             <div>
-                <h1 class="title font-black tracking-tighter">GRAN POLLERÍA & CHAUFA</h1>
-                <p class="text-amber-600 text-base font-semibold">Tingo María</p>
+                <h1 class="title">GRAN POLLERÍA & CHAUFA</h1>
+                <p class="city-tag mt-1">Tingo María</p>
             </div>
-            <div class="flex items-center gap-2 bg-green-100 text-green-700 px-5 py-2.5 rounded-full text-base font-bold">
-                <div class="w-3.5 h-3.5 bg-green-500 rounded-full animate-pulse"></div>
+            <div class="flex items-center gap-2 bg-green-100 text-green-700 px-5 py-2.5 rounded-full badge-24">
+                <div class="w-3 h-3 bg-green-500 rounded-full animate-pulse"></div>
                 24 HORAS
             </div>
         </div>
@@ -78,15 +234,13 @@
         <section class="py-10 text-center">
             <div class="flex flex-col items-center px-5">
                 <div id="carousel-container" class="hero-circle cursor-pointer select-none mx-auto">
-                    <img id="carousel-img" 
-                         src="https://images.unsplash.com/photo-1626132647523-66f5bf380027?w=800&auto=format&fit=crop&q=80" 
-                         alt="Pollo a la brasa" 
+                    <img id="carousel-img"
+                         src="https://images.unsplash.com/photo-1626132647523-66f5bf380027?w=800&auto=format&fit=crop&q=80"
+                         alt="Pollo a la brasa"
                          class="carousel-image">
                 </div>
-
                 <div class="flex gap-3 mt-8" id="carousel-dots"></div>
-
-                <p class="mt-6 text-orange-700 text-lg font-semibold flex items-center justify-center gap-3">
+                <p class="mt-6 hint-text flex items-center justify-center gap-3">
                     <i class="fa-solid fa-hand-pointer animate-bounce"></i>
                     Mantén presionado para pausar
                 </p>
@@ -95,36 +249,33 @@
 
         <!-- Platos Destacados -->
         <section class="py-8 px-5 bg-white">
-            <h2 class="section-title font-bold text-center mb-8">Platos Más Pedidos</h2>
-            
+            <h2 class="section-title text-center mb-8">Platos Más Pedidos</h2>
             <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
                 <div class="card bg-white rounded-3xl overflow-hidden shadow-lg border border-amber-100">
-                    <img src="https://images.unsplash.com/photo-1626132647523-66f5bf380027?w=600&auto=format&fit=crop&q=80" 
+                    <img src="https://images.unsplash.com/photo-1626132647523-66f5bf380027?w=600&auto=format&fit=crop&q=80"
                          class="w-full plato-img object-cover" alt="Pollo">
                     <div class="p-6">
-                        <h3 class="font-bold text-2xl">Pollo a la Brasa</h3>
-                        <p class="text-amber-600 font-bold text-xl mt-1">S/. 45</p>
-                        <p class="text-gray-600 mt-3">Con papas, ensalada y salsas.</p>
+                        <h3 class="dish-name">Pollo a la Brasa</h3>
+                        <p class="dish-price mt-1">S/. 45</p>
+                        <p class="dish-desc mt-3">Con papas, ensalada y salsas.</p>
                     </div>
                 </div>
-
                 <div class="card bg-white rounded-3xl overflow-hidden shadow-lg border border-amber-100">
-                    <img src="https://images.unsplash.com/photo-1562967914-608f82629710?w=600&auto=format&fit=crop&q=80" 
+                    <img src="https://images.unsplash.com/photo-1562967914-608f82629710?w=600&auto=format&fit=crop&q=80"
                          class="w-full plato-img object-cover" alt="Chaufa">
                     <div class="p-6">
-                        <h3 class="font-bold text-2xl">Chaufa Especial</h3>
-                        <p class="text-amber-600 font-bold text-xl mt-1">S/. 38</p>
-                        <p class="text-gray-600 mt-3">Pollo, cerdo y langostinos.</p>
+                        <h3 class="dish-name">Chaufa Especial</h3>
+                        <p class="dish-price mt-1">S/. 38</p>
+                        <p class="dish-desc mt-3">Pollo, cerdo y langostinos.</p>
                     </div>
                 </div>
-
                 <div class="card bg-white rounded-3xl overflow-hidden shadow-lg border border-amber-100">
-                    <img src="https://images.unsplash.com/photo-1512058564366-18510be2db19?w=600&auto=format&fit=crop&q=80" 
+                    <img src="https://images.unsplash.com/photo-1512058564366-18510be2db19?w=600&auto=format&fit=crop&q=80"
                          class="w-full plato-img object-cover" alt="Combo">
                     <div class="p-6">
-                        <h3 class="font-bold text-2xl">Combo Familiar</h3>
-                        <p class="text-amber-600 font-bold text-xl mt-1">S/. 89</p>
-                        <p class="text-gray-600 mt-3">Ideal para 4-5 personas.</p>
+                        <h3 class="dish-name">Combo Familiar</h3>
+                        <p class="dish-price mt-1">S/. 89</p>
+                        <p class="dish-desc mt-3">Ideal para 4-5 personas.</p>
                     </div>
                 </div>
             </div>
@@ -132,22 +283,22 @@
 
         <!-- Por qué elegirnos -->
         <section class="py-12 px-5 bg-amber-50">
-            <h2 class="section-title font-bold text-center mb-10">¿Por qué elegirnos?</h2>
+            <h2 class="section-title text-center mb-10">¿Por qué elegirnos?</h2>
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
                 <div>
                     <div class="text-5xl mb-4">🍗</div>
-                    <h3 class="text-2xl font-bold mb-2">Calidad Premium</h3>
-                    <p class="text-gray-600">Pollo fresco y mejores ingredientes</p>
+                    <h3 class="reason-title mb-2">Calidad Premium</h3>
+                    <p class="reason-desc">Pollo fresco y los mejores ingredientes</p>
                 </div>
                 <div>
                     <div class="text-5xl mb-4">🕒</div>
-                    <h3 class="text-2xl font-bold mb-2">Abierto 24 Horas</h3>
-                    <p class="text-gray-600">Atención toda la noche</p>
+                    <h3 class="reason-title mb-2">Abierto 24 Horas</h3>
+                    <p class="reason-desc">Atención toda la noche</p>
                 </div>
                 <div>
                     <div class="text-5xl mb-4">🚀</div>
-                    <h3 class="text-2xl font-bold mb-2">Delivery Rápido</h3>
-                    <p class="text-gray-600">Menos de 30 minutos</p>
+                    <h3 class="reason-title mb-2">Delivery Rápido</h3>
+                    <p class="reason-desc">Menos de 30 minutos</p>
                 </div>
             </div>
         </section>
@@ -157,35 +308,48 @@
     <footer class="bg-gray-900 text-white py-10">
         <div class="max-w-4xl mx-auto px-5">
             <div class="text-center md:text-left">
-                <h2 class="text-3xl font-bold text-amber-400 mb-2">Gran Pollería & Chaufa</h2>
-                <p class="text-gray-400">Sabor y tradición en Tingo María</p>
+                <h2 class="footer-title">Gran Pollería & Chaufa</h2>
+                <p class="footer-sub mt-1">Sabor y tradición en Tingo María</p>
             </div>
 
             <div class="mt-8 flex flex-col md:flex-row gap-6">
-                <a href="https://wa.me/51900000000" target="_blank"
-                   class="flex-1 flex items-center justify-center gap-4 bg-green-600 hover:bg-green-500 py-6 rounded-3xl text-xl font-bold transition">
-                    <i class="fa-brands fa-whatsapp text-4xl"></i>
-                    <span>WhatsApp</span>
+
+                <!-- Botón WhatsApp -->
+                <a href="https://wa.me/51900000000" target="_blank" class="contact-btn btn-whatsapp">
+                    <div class="icon-wrap">
+                        <i class="fa-brands fa-whatsapp"></i>
+                    </div>
+                    <div class="btn-label">
+                        <span>WhatsApp</span>
+                        <span class="sub">Escríbenos ahora</span>
+                    </div>
                 </a>
-                <a href="mailto:polleriachaufa@gmail.com"
-                   class="flex-1 flex items-center justify-center gap-4 bg-red-600 hover:bg-red-500 py-6 rounded-3xl text-xl font-bold transition">
-                    <i class="fa-solid fa-envelope text-4xl"></i>
-                    <span>Correo</span>
+
+                <!-- Botón Correo -->
+                <a href="mailto:polleriachaufa@gmail.com" class="contact-btn btn-email">
+                    <div class="icon-wrap">
+                        <i class="fa-solid fa-envelope"></i>
+                    </div>
+                    <div class="btn-label">
+                        <span>Correo</span>
+                        <span class="sub">polleriachaufa@gmail.com</span>
+                    </div>
                 </a>
+
             </div>
 
-            <div class="text-center text-gray-500 mt-10 text-sm">
-                Av. Principal 123, Tingo María • Abierto 24 horas
+            <div class="text-center mt-10 footer-address">
+                Av. Principal 123, Tingo María &nbsp;•&nbsp; Abierto 24 horas
             </div>
         </div>
     </footer>
 
     <script>
         const images = [
-            "https://images.unsplash.com/photo-1626132647523-66f5bf380027?w=800&auto=format&fit=crop&q=80", 
-            "https://images.unsplash.com/photo-1512058564366-18510be2db19?w=800&auto=format&fit=crop&q=80", 
-            "https://images.unsplash.com/photo-1562967914-608f82629710?w=800&auto=format&fit=crop&q=80", 
-            "https://images.unsplash.com/photo-1573080496219-bb080dd4f877?w=800&auto=format&fit=crop&q=80"  
+            "https://images.unsplash.com/photo-1626132647523-66f5bf380027?w=800&auto=format&fit=crop&q=80",
+            "https://images.unsplash.com/photo-1512058564366-18510be2db19?w=800&auto=format&fit=crop&q=80",
+            "https://images.unsplash.com/photo-1562967914-608f82629710?w=800&auto=format&fit=crop&q=80",
+            "https://images.unsplash.com/photo-1573080496219-bb080dd4f877?w=800&auto=format&fit=crop&q=80"
         ];
 
         let currentIndex = 0;
@@ -198,7 +362,7 @@
 
         images.forEach((_, index) => {
             const dot = document.createElement("div");
-            dot.className = `dot-indicator h-4 w-4 rounded-full border-2 border-amber-300 ${index === 0 ? 'bg-amber-500 scale-125' : 'bg-white/60'}`;
+            dot.className = `h-4 w-4 rounded-full border-2 border-amber-300 ${index === 0 ? 'bg-amber-500 scale-125' : 'bg-white/60'}`;
             dotsContainer.appendChild(dot);
         });
 
@@ -209,7 +373,6 @@
             setTimeout(() => {
                 currentIndex = (currentIndex + 1) % images.length;
                 imgElement.src = images[currentIndex];
-
                 Array.from(dots).forEach((dot, i) => {
                     if (i === currentIndex) {
                         dot.classList.add('bg-amber-500', 'scale-125');
@@ -230,14 +393,8 @@
             }, 3500);
         }
 
-        const startInteraction = () => { 
-            isInteracting = true; 
-            container.style.transform = 'scale(1.08)'; 
-        };
-        const endInteraction = () => { 
-            isInteracting = false; 
-            container.style.transform = 'scale(1)'; 
-        };
+        const startInteraction = () => { isInteracting = true; container.style.transform = 'scale(1.08)'; };
+        const endInteraction = () => { isInteracting = false; container.style.transform = 'scale(1)'; };
 
         container.addEventListener('mousedown', startInteraction);
         window.addEventListener('mouseup', endInteraction);
